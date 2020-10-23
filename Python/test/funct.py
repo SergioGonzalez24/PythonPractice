@@ -1,5 +1,14 @@
-n = 0
-while n > 0 :
-    print('Lather')
-    print('Rinse')
-print('Dry off!')
+largest = None
+smallest = None
+while True:
+    
+    num=int(input("numero: "))
+    val= input("Enter a number: ")
+
+    if val == "done" :
+        break
+    print(num)
+
+        
+
+print("Maximum", largest)
