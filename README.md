@@ -1,3 +1,2 @@
 # PythonPractice
-Codigos de Prueba, Ejemplos Ejercicios etc...
 Only Python Practice and Tests codes
