@@ -3,8 +3,10 @@ from googletrans import Translator
 
 mesActual=time.strftime("%B")
 translator=Translator()
-translator.translate(mesActual,dest='es')
+
+d1=translator.detect(mesActual)
+
+mesTrad=tarnslator.translate(mesActual,src=d1.lang,dest="es")
 
 
-
-print ("el mes actual es ", time.strftime("%B"))
+print(mesTrad.lower())
