@@ -43,6 +43,7 @@ while True: #While Principal
 
         elif eleccionJ == "r" or eleccionJ == "p" or eleccionJ == "t":
             randomNum=random.randint(1,3)
+            resComp=turnoComp(randomNum)
 
             if turnoJugador(eleccionJ) == turnoComp(randomNum) :
                 print("Es un empate")
