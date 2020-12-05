@@ -1,60 +1,58 @@
-import random
+import random, sys
 
+print("Piedra Papel o Tijera")
 
-pregunta=input("si o no ")
-preg_m=pregunta.lower()
+#Funciones a usar
+def turnoJugador(eleccion):
+    if eleccion == "r":
+        print("Piedra contra...")
+        return 1
+    elif  eleccion == "p":
+        print("Papel contra...")
+        return 2
+    elif eleccion == "t":
+        print("Papel contra...")
+        return 3
 
-if preg_m =="si":
-    choice=True
-elif preg_m == "no":
-    choice=False
-else :
-    print("No valido")
-    choicse=False
+def turnoComp (randomNum):
+    if randomNum == 1:
+        print(" Piedra")
+        return 1
+    elif  randomNum == 2:
+        print(" Papel")
+        return 2
+    elif randomNum == 3:
+        print(" Tijera")
+        return 2
 
-def lap_choice(lap):
+#Variables que guardan datos de juego (Partidas ganadas, perdidas o empatadas)
+ganados = 0
+perdidos = 0
+empatados = 0
 
-    lap.randint(1,3)
-    if lap ==1:
-        #piedra
-        lap=1
-    elif lap ==2:
-        #papel
-        lap=2
-    elif lap ==3:
-        #tijera
-        lap=3
-def PPT ():
+while True: #While Principal
+    print("%s Ganados, %s Perdidos, %s Empatados" %(ganados,perdidos,empatados))
 
-    a=input("has tu eleccion piedra, papel o tijera")
-    usrAns=a.lower()
+    while True: #while eleccion jugador
+        eleccionJ = input("Elije Piedra (R), Papel (P), Tijera (T), salir (S) ")
+        eleccionJ.lower()
 
-    if usrAns=="piedra" or "papel" or "tijera":
-        if usrAns=="piedra":
-            piedra=1
-            #Hacer la comparacion ntre la eleccion del usuario y la computadora
-        elif usrAns=="papel":
-            papel=2
-            #Hacer la comparacion ntre la eleccion del usuario y la computadora
-        elif usrAns=="tijera":
-            tijera=3
-            #Hacer la comparacion ntre la eleccion del usuario y la computadora
+        if eleccionJ == "s":
+            print("Gracias por jugar, vuelva pronto")
+            sys.exit() #Salir del Programa
 
-while choice==True:
+        elif eleccionJ == "r" or eleccionJ == "p" or eleccionJ == "t":
+            randomNum=random.randint(1,3)
 
-    back=True
-    PPT()
-
-    
-    while back==True:
-
-        back=input("¿Otra vez?")
-        back_m=back.lower()
-
-        if back_m=="si":
-            continue
-        elif back_m=="no":
-            choice= False
-            break
-        else:
-            back=True
+            if turnoJugador(eleccionJ) == turnoComp(randomNum) :
+                print("Es un empate")
+                empatados+=1
+                break
+            elif turnoJugador(eleccionJ) > turnoComp(randomNum):
+                print("Ganaste!")
+                ganados+=1
+                break
+            elif turnoJugador(eleccionJ) < turnoComp(randomNum):
+                print("Perdiste !")
+                perdidos+=1
+                break
